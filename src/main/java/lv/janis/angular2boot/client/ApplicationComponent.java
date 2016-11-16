@@ -42,4 +42,11 @@ public class ApplicationComponent {
             new Heroes(20, "Tornado"));
 
     public JsArray<Heroes> heroes = HEROES;
+    
+    public Heroes selectedHero = null;
+    
+    public void onSelect( Heroes hero )
+	{
+		selectedHero = hero;
+	}
 }
