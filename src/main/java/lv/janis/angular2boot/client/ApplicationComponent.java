@@ -1,5 +1,6 @@
 package lv.janis.angular2boot.client;
 
+import fr.lteconsulting.angular2gwt.client.JsArray;
 import fr.lteconsulting.angular2gwt.ng.core.Component;
 import jsinterop.annotations.JsType;
 
@@ -10,14 +11,28 @@ import jsinterop.annotations.JsType;
  * It simply binds to the <my-app> tag.
  */
 @Component(
-selector = "my-app",
-template = "<h1>{{title}}</h1>"
-				+ "<h2>{{hero.name}} details!</h2>"
-				+ "<div><label>id: </label>{{hero.id}}</div>"
-				+ "<div><label>name: </label><input [(ngModel)]='hero.name' placeholder='name'></div>" )
+        selector = "my-app",
+        template = "<h1>{{title}}</h1>"
+        + "<h2>{{hero.name}} details!</h2>"
+        + "<div><label>id: </label>{{hero.id}}</div>"
+        + "<div><label>name: </label><input [(ngModel)]='hero.name' placeholder='name'></div>")
 @JsType
-public class ApplicationComponent
-{
-	public String title = "Tour of Heroes";
-	public Heroes hero = new Heroes( 1, "Windstorm" );
+public class ApplicationComponent {
+
+    public String title = "Tour of Heroes";
+    public Heroes hero = new Heroes(1, "Windstorm");
+
+    private static final JsArray<Heroes> HEROES = JsArray.of(
+            new Heroes(11, "Mr. Nice"),
+            new Heroes(12, "Narco"),
+            new Heroes(13, "Bombasto"),
+            new Heroes(14, "Celeritas"),
+            new Heroes(15, "Magneta"),
+            new Heroes(16, "RubberMan"),
+            new Heroes(17, "Dynama"),
+            new Heroes(18, "Dr IQ"),
+            new Heroes(19, "Magma"),
+            new Heroes(20, "Tornado"));
+
+    public JsArray<Heroes> heroes = HEROES;
 }
