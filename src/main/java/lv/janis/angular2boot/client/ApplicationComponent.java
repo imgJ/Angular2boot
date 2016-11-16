@@ -16,5 +16,5 @@ template = "<h1>{{title}}</h1><h2>{{hero}} details!</h2>" )
 public class ApplicationComponent
 {
 	public String title = "Tour of Heroes";
-	public String hero = "Windstorm";
+	public Hero hero = new Hero( 1, "Windstorm" );
 }
