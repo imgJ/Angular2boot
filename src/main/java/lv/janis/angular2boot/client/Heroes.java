@@ -1,15 +1,15 @@
+package lv.janis.angular2boot.client;
 
 import jsinterop.annotations.JsType;
 
 @JsType
-public class Hero
-{
-  public int id;
-  public String name;
+public class Heroes {
 
-  public Hero( int id, String name )
-  {
-    this.id = id;
-    this.name = name;
-  }
+    public int id;
+    public String name;
+
+    public Heroes(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
