@@ -5,15 +5,16 @@ import jsinterop.annotations.JsType;
 
 /**
  * Main angular component for the application.
- * 
+ *
  * <p>
  * It simply binds to the <my-app> tag.
  */
 @Component(
-		selector = "my-app",
-		template = "<h1>{{title}}</h1>You can edit the title by changing the text in this box :<br/><input [(ngModel)]='title'/>" )
+selector = "my-app",
+template = "<h1>{{title}}</h1><h2>{{hero}} details!</h2>" )
 @JsType
 public class ApplicationComponent
 {
-	public String title = "Your application is working !";
+	public String title = "Tour of Heroes";
+	public String hero = "Windstorm";
 }
