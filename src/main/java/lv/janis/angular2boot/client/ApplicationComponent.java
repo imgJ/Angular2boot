@@ -15,13 +15,17 @@ import jsinterop.annotations.JsType;
         template = "<h1>{{title}}</h1>"
         + "<h2>My Heroes</h2>"
         + "<ul class='heroes'>"
-        + "<li *ngFor='let hero of heroes'>"
-        + "<span class='badge'>{{hero.id}}</span> {{hero.name}}"
+        + "<li *ngFor='let hero of heroes'"
+        + " (click)='onSelect(hero)'"
+        + " [class.selected]='hero === selectedHero'>"
+        + " <span class='badge'>{{hero.id}}</span> {{hero.name}}"
         + "</li>"
         + "</ul>"
-        + "<h2>{{hero.name}} details!</h2>"
-        + "<div><label>id: </label>{{hero.id}}</div>"
-        + "<div><label>name: </label><input [(ngModel)]='hero.name' placeholder='name'></div>",
+        + "<div *ngIf='selectedHero'>"
+        + "<h2>{{selectedHero.name}} details!</h2>"
+        + "<div><label>id: </label>{{selectedHero.id}}</div>"
+        + "<div><label>name: </label><input [(ngModel)]='selectedHero.name' placeholder='name'></div>"
+        + "</div>",
         styleUrls = "application.component.css")
 @JsType
 public class ApplicationComponent {
@@ -42,11 +46,10 @@ public class ApplicationComponent {
             new Heroes(20, "Tornado"));
 
     public JsArray<Heroes> heroes = HEROES;
-    
+
     public Heroes selectedHero = null;
-    
-    public void onSelect( Heroes hero )
-	{
-		selectedHero = hero;
-	}
+
+    public void onSelect(Heroes hero) {
+        selectedHero = hero;
+    }
 }
